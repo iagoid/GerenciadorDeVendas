@@ -10,26 +10,20 @@
     <Property Name="CPF" Type="varchar" MaxLength="11" Nullable="false" />
     <Property Name="Endereco" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'E:\DESKTOP\ESCOLA\ANALISEDESOFTWARE\GERENCIADORDEVENDAS\GERENCIADORDEVENDAS\DATABASE.MDF.dbo.ItemsPedidosClientes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="ItemsPedidosClientes">
     <Key>
-      <PropertyRef Name="Quantidade" />
-      <PropertyRef Name="CodProduto" />
-      <PropertyRef Name="CodPedidoCliente" />
+      <PropertyRef Name="CodItemPedido" />
     </Key>
+    <Property Name="CodItemPedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Quantidade" Type="int" Nullable="false" />
     <Property Name="CodProduto" Type="int" Nullable="false" />
     <Property Name="CodPedidoCliente" Type="int" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'E:\DESKTOP\ESCOLA\ANALISEDESOFTWARE\GERENCIADORDEVENDAS\GERENCIADORDEVENDAS\DATABASE.MDF.dbo.ItemsPedidosFornecedor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="ItemsPedidosFornecedor">
     <Key>
-      <PropertyRef Name="Quantidade" />
-      <PropertyRef Name="CodProduto" />
-      <PropertyRef Name="CodPedidoFornecedor" />
+      <PropertyRef Name="CodItemPedido" />
     </Key>
+    <Property Name="CodItemPedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Quantidade" Type="int" Nullable="false" />
     <Property Name="CodProduto" Type="int" Nullable="false" />
     <Property Name="CodPedidoFornecedor" Type="int" Nullable="false" />
@@ -41,8 +35,8 @@ warning 6002: The table/view 'E:\DESKTOP\ESCOLA\ANALISEDESOFTWARE\GERENCIADORDEV
     <Property Name="CodParcela" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Valor" Type="decimal" Precision="8" Scale="2" Nullable="false" />
     <Property Name="DtPagamento" Type="date" Nullable="false" />
-    <Property Name="CodPedidoForncedor" Type="int" Nullable="false" />
-    <Property Name="CodPedidoCliente" Type="int" Nullable="false" />
+    <Property Name="CodPedidoForncedor" Type="int" />
+    <Property Name="CodPedidoCliente" Type="int" />
     <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
   </EntityType>
   <EntityType Name="PedidoClientes">
@@ -124,7 +118,7 @@ warning 6002: The table/view 'E:\DESKTOP\ESCOLA\ANALISEDESOFTWARE\GERENCIADORDEV
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PedidoClientes_Parcelas">
-    <End Role="PedidoClientes" Type="Self.PedidoClientes" Multiplicity="1" />
+    <End Role="PedidoClientes" Type="Self.PedidoClientes" Multiplicity="0..1" />
     <End Role="Parcelas" Type="Self.Parcelas" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PedidoClientes">
@@ -136,7 +130,7 @@ warning 6002: The table/view 'E:\DESKTOP\ESCOLA\ANALISEDESOFTWARE\GERENCIADORDEV
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PedidoForncedores_Parcelas">
-    <End Role="PedidoFornecedores" Type="Self.PedidoFornecedores" Multiplicity="1" />
+    <End Role="PedidoFornecedores" Type="Self.PedidoFornecedores" Multiplicity="0..1" />
     <End Role="Parcelas" Type="Self.Parcelas" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PedidoFornecedores">
@@ -161,24 +155,12 @@ warning 6002: The table/view 'E:\DESKTOP\ESCOLA\ANALISEDESOFTWARE\GERENCIADORDEV
   </Association>
   <EntityContainer Name="DatabaseModelStoreContainer">
     <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemsPedidosClientes" EntityType="Self.ItemsPedidosClientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemsPedidosFornecedor" EntityType="Self.ItemsPedidosFornecedor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Parcelas" EntityType="Self.Parcelas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PedidoClientes" EntityType="Self.PedidoClientes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PedidoFornecedores" EntityType="Self.PedidoFornecedores" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Produtos" EntityType="Self.Produtos" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ItemsPedidosClientes" EntityType="Self.ItemsPedidosClientes" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [ItemsPedidosClientes].[Quantidade] AS [Quantidade], 
-    [ItemsPedidosClientes].[CodProduto] AS [CodProduto], 
-    [ItemsPedidosClientes].[CodPedidoCliente] AS [CodPedidoCliente]
-    FROM [dbo].[ItemsPedidosClientes] AS [ItemsPedidosClientes]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="ItemsPedidosFornecedor" EntityType="Self.ItemsPedidosFornecedor" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [ItemsPedidosFornecedor].[Quantidade] AS [Quantidade], 
-    [ItemsPedidosFornecedor].[CodProduto] AS [CodProduto], 
-    [ItemsPedidosFornecedor].[CodPedidoFornecedor] AS [CodPedidoFornecedor]
-    FROM [dbo].[ItemsPedidosFornecedor] AS [ItemsPedidosFornecedor]</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="FK_Clientes_PedidoClientes" Association="Self.FK_Clientes_PedidoClientes">
       <End Role="Clientes" EntitySet="Clientes" />
       <End Role="PedidoClientes" EntitySet="PedidoClientes" />

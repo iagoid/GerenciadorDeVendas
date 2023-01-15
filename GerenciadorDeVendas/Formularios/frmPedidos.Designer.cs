@@ -213,6 +213,7 @@
             // 
             // cmbParcelas
             // 
+            this.cmbParcelas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbParcelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbParcelas.FormattingEnabled = true;
             this.cmbParcelas.Location = new System.Drawing.Point(90, 171);

@@ -17,8 +17,8 @@ namespace GerenciadorDeVendas
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Produtos()
         {
-            this.ItemsPedidosFornecedor = new HashSet<ItemsPedidosFornecedor>();
             this.ItemsPedidosClientes = new HashSet<ItemsPedidosClientes>();
+            this.ItemsPedidosFornecedor = new HashSet<ItemsPedidosFornecedor>();
         }
     
         public int CodProduto { get; set; }
@@ -27,8 +27,8 @@ namespace GerenciadorDeVendas
         public string Tamanho { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ItemsPedidosFornecedor> ItemsPedidosFornecedor { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ItemsPedidosClientes> ItemsPedidosClientes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ItemsPedidosFornecedor> ItemsPedidosFornecedor { get; set; }
     }
 }

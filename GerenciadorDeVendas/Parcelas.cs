@@ -17,8 +17,8 @@ namespace GerenciadorDeVendas
         public int CodParcela { get; set; }
         public decimal Valor { get; set; }
         public System.DateTime DtPagamento { get; set; }
-        public int CodPedidoForncedor { get; set; }
-        public int CodPedidoCliente { get; set; }
+        public Nullable<int> CodPedidoForncedor { get; set; }
+        public Nullable<int> CodPedidoCliente { get; set; }
         public string Status { get; set; }
     
         public virtual PedidoClientes PedidoClientes { get; set; }

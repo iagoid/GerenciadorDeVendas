@@ -11,6 +11,28 @@
     <Property Name="Endereco" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="PedidoClientes" Relationship="Self.FK_Clientes_PedidoClientes" FromRole="Clientes" ToRole="PedidoClientes" />
   </EntityType>
+  <EntityType Name="ItemsPedidosClientes">
+    <Key>
+      <PropertyRef Name="CodItemPedido" />
+    </Key>
+    <Property Name="CodItemPedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Quantidade" Type="Int32" Nullable="false" />
+    <Property Name="CodProduto" Type="Int32" Nullable="false" />
+    <Property Name="CodPedidoCliente" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Produtos" Relationship="Self.FK_ItemsPedidosClientes_Produtos" FromRole="ItemsPedidosClientes" ToRole="Produtos" />
+    <NavigationProperty Name="PedidoClientes" Relationship="Self.FK_PedidoClientes_ItemsPedidosClientes" FromRole="ItemsPedidosClientes" ToRole="PedidoClientes" />
+  </EntityType>
+  <EntityType Name="ItemsPedidosFornecedor">
+    <Key>
+      <PropertyRef Name="CodItemPedido" />
+    </Key>
+    <Property Name="CodItemPedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Quantidade" Type="Int32" Nullable="false" />
+    <Property Name="CodProduto" Type="Int32" Nullable="false" />
+    <Property Name="CodPedidoFornecedor" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Produtos" Relationship="Self.FK_ItemsPedidos_Produtos" FromRole="ItemsPedidosFornecedor" ToRole="Produtos" />
+    <NavigationProperty Name="PedidoFornecedores" Relationship="Self.FK_PedidoFornecedorFornecedor_ItemsPedidosFornecedor" FromRole="ItemsPedidosFornecedor" ToRole="PedidoFornecedores" />
+  </EntityType>
   <EntityType Name="Parcelas">
     <Key>
       <PropertyRef Name="CodParcela" />
@@ -18,8 +40,8 @@
     <Property Name="CodParcela" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Valor" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
     <Property Name="DtPagamento" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="CodPedidoForncedor" Type="Int32" Nullable="false" />
-    <Property Name="CodPedidoCliente" Type="Int32" Nullable="false" />
+    <Property Name="CodPedidoForncedor" Type="Int32" />
+    <Property Name="CodPedidoCliente" Type="Int32" />
     <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <NavigationProperty Name="PedidoClientes" Relationship="Self.FK_PedidoClientes_Parcelas" FromRole="Parcelas" ToRole="PedidoClientes" />
     <NavigationProperty Name="PedidoFornecedores" Relationship="Self.FK_PedidoForncedores_Parcelas" FromRole="Parcelas" ToRole="PedidoFornecedores" />
@@ -35,8 +57,8 @@
     <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
     <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_PedidoClientes" FromRole="PedidoClientes" ToRole="Clientes" />
-    <NavigationProperty Name="Parcelas" Relationship="Self.FK_PedidoClientes_Parcelas" FromRole="PedidoClientes" ToRole="Parcelas" />
     <NavigationProperty Name="ItemsPedidosClientes" Relationship="Self.FK_PedidoClientes_ItemsPedidosClientes" FromRole="PedidoClientes" ToRole="ItemsPedidosClientes" />
+    <NavigationProperty Name="Parcelas" Relationship="Self.FK_PedidoClientes_Parcelas" FromRole="PedidoClientes" ToRole="Parcelas" />
   </EntityType>
   <EntityType Name="PedidoFornecedores">
     <Key>
@@ -47,8 +69,8 @@
     <Property Name="TotalParcelas" Type="Int32" Nullable="false" />
     <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
-    <NavigationProperty Name="Parcelas" Relationship="Self.FK_PedidoForncedores_Parcelas" FromRole="PedidoFornecedores" ToRole="Parcelas" />
     <NavigationProperty Name="ItemsPedidosFornecedor" Relationship="Self.FK_PedidoFornecedorFornecedor_ItemsPedidosFornecedor" FromRole="PedidoFornecedores" ToRole="ItemsPedidosFornecedor" />
+    <NavigationProperty Name="Parcelas" Relationship="Self.FK_PedidoForncedores_Parcelas" FromRole="PedidoFornecedores" ToRole="Parcelas" />
   </EntityType>
   <EntityType Name="Produtos">
     <Key>
@@ -58,32 +80,8 @@
     <Property Name="Nome" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ValorUnitario" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
     <Property Name="Tamanho" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="ItemsPedidosFornecedor" Relationship="Self.FK_ItemsPedidos_Produtos" FromRole="Produtos" ToRole="ItemsPedidosFornecedor" />
     <NavigationProperty Name="ItemsPedidosClientes" Relationship="Self.FK_ItemsPedidosClientes_Produtos" FromRole="Produtos" ToRole="ItemsPedidosClientes" />
-  </EntityType>
-  <EntityType Name="ItemsPedidosClientes">
-    <Key>
-      <PropertyRef Name="Quantidade" />
-      <PropertyRef Name="CodProduto" />
-      <PropertyRef Name="CodPedidoCliente" />
-    </Key>
-    <Property Name="Quantidade" Type="Int32" Nullable="false" />
-    <Property Name="CodProduto" Type="Int32" Nullable="false" />
-    <Property Name="CodPedidoCliente" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="PedidoClientes" Relationship="Self.FK_PedidoClientes_ItemsPedidosClientes" FromRole="ItemsPedidosClientes" ToRole="PedidoClientes" />
-    <NavigationProperty Name="Produtos" Relationship="Self.FK_ItemsPedidosClientes_Produtos" FromRole="ItemsPedidosClientes" ToRole="Produtos" />
-  </EntityType>
-  <EntityType Name="ItemsPedidosFornecedor">
-    <Key>
-      <PropertyRef Name="Quantidade" />
-      <PropertyRef Name="CodProduto" />
-      <PropertyRef Name="CodPedidoFornecedor" />
-    </Key>
-    <Property Name="Quantidade" Type="Int32" Nullable="false" />
-    <Property Name="CodProduto" Type="Int32" Nullable="false" />
-    <Property Name="CodPedidoFornecedor" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="PedidoFornecedores" Relationship="Self.FK_PedidoFornecedorFornecedor_ItemsPedidosFornecedor" FromRole="ItemsPedidosFornecedor" ToRole="PedidoFornecedores" />
-    <NavigationProperty Name="Produtos" Relationship="Self.FK_ItemsPedidos_Produtos" FromRole="ItemsPedidosFornecedor" ToRole="Produtos" />
+    <NavigationProperty Name="ItemsPedidosFornecedor" Relationship="Self.FK_ItemsPedidos_Produtos" FromRole="Produtos" ToRole="ItemsPedidosFornecedor" />
   </EntityType>
   <Association Name="FK_Clientes_PedidoClientes">
     <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
@@ -94,66 +92,6 @@
       </Principal>
       <Dependent Role="PedidoClientes">
         <PropertyRef Name="CodCliente" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PedidoClientes_Parcelas">
-    <End Role="PedidoClientes" Type="Self.PedidoClientes" Multiplicity="1" />
-    <End Role="Parcelas" Type="Self.Parcelas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PedidoClientes">
-        <PropertyRef Name="CodPedidoC" />
-      </Principal>
-      <Dependent Role="Parcelas">
-        <PropertyRef Name="CodPedidoCliente" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PedidoForncedores_Parcelas">
-    <End Role="PedidoFornecedores" Type="Self.PedidoFornecedores" Multiplicity="1" />
-    <End Role="Parcelas" Type="Self.Parcelas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PedidoFornecedores">
-        <PropertyRef Name="CodPedidoF" />
-      </Principal>
-      <Dependent Role="Parcelas">
-        <PropertyRef Name="CodPedidoForncedor" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PedidoClientes_ItemsPedidosClientes">
-    <End Role="PedidoClientes" Type="Self.PedidoClientes" Multiplicity="1" />
-    <End Role="ItemsPedidosClientes" Type="Self.ItemsPedidosClientes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PedidoClientes">
-        <PropertyRef Name="CodPedidoC" />
-      </Principal>
-      <Dependent Role="ItemsPedidosClientes">
-        <PropertyRef Name="CodPedidoCliente" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PedidoFornecedorFornecedor_ItemsPedidosFornecedor">
-    <End Role="PedidoFornecedores" Type="Self.PedidoFornecedores" Multiplicity="1" />
-    <End Role="ItemsPedidosFornecedor" Type="Self.ItemsPedidosFornecedor" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PedidoFornecedores">
-        <PropertyRef Name="CodPedidoF" />
-      </Principal>
-      <Dependent Role="ItemsPedidosFornecedor">
-        <PropertyRef Name="CodPedidoFornecedor" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ItemsPedidos_Produtos">
-    <End Role="Produtos" Type="Self.Produtos" Multiplicity="1" />
-    <End Role="ItemsPedidosFornecedor" Type="Self.ItemsPedidosFornecedor" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Produtos">
-        <PropertyRef Name="CodProduto" />
-      </Principal>
-      <Dependent Role="ItemsPedidosFornecedor">
-        <PropertyRef Name="CodProduto" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -169,17 +107,93 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_PedidoClientes_ItemsPedidosClientes">
+    <End Role="PedidoClientes" Type="Self.PedidoClientes" Multiplicity="1" />
+    <End Role="ItemsPedidosClientes" Type="Self.ItemsPedidosClientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PedidoClientes">
+        <PropertyRef Name="CodPedidoC" />
+      </Principal>
+      <Dependent Role="ItemsPedidosClientes">
+        <PropertyRef Name="CodPedidoCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItemsPedidos_Produtos">
+    <End Role="Produtos" Type="Self.Produtos" Multiplicity="1" />
+    <End Role="ItemsPedidosFornecedor" Type="Self.ItemsPedidosFornecedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produtos">
+        <PropertyRef Name="CodProduto" />
+      </Principal>
+      <Dependent Role="ItemsPedidosFornecedor">
+        <PropertyRef Name="CodProduto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PedidoFornecedorFornecedor_ItemsPedidosFornecedor">
+    <End Role="PedidoFornecedores" Type="Self.PedidoFornecedores" Multiplicity="1" />
+    <End Role="ItemsPedidosFornecedor" Type="Self.ItemsPedidosFornecedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PedidoFornecedores">
+        <PropertyRef Name="CodPedidoF" />
+      </Principal>
+      <Dependent Role="ItemsPedidosFornecedor">
+        <PropertyRef Name="CodPedidoFornecedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PedidoClientes_Parcelas">
+    <End Role="PedidoClientes" Type="Self.PedidoClientes" Multiplicity="0..1" />
+    <End Role="Parcelas" Type="Self.Parcelas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PedidoClientes">
+        <PropertyRef Name="CodPedidoC" />
+      </Principal>
+      <Dependent Role="Parcelas">
+        <PropertyRef Name="CodPedidoCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PedidoForncedores_Parcelas">
+    <End Role="PedidoFornecedores" Type="Self.PedidoFornecedores" Multiplicity="0..1" />
+    <End Role="Parcelas" Type="Self.Parcelas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PedidoFornecedores">
+        <PropertyRef Name="CodPedidoF" />
+      </Principal>
+      <Dependent Role="Parcelas">
+        <PropertyRef Name="CodPedidoForncedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="DatabaseEntities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+    <EntitySet Name="ItemsPedidosClientes" EntityType="Self.ItemsPedidosClientes" />
+    <EntitySet Name="ItemsPedidosFornecedor" EntityType="Self.ItemsPedidosFornecedor" />
     <EntitySet Name="Parcelas" EntityType="Self.Parcelas" />
     <EntitySet Name="PedidoClientes" EntityType="Self.PedidoClientes" />
     <EntitySet Name="PedidoFornecedores" EntityType="Self.PedidoFornecedores" />
     <EntitySet Name="Produtos" EntityType="Self.Produtos" />
-    <EntitySet Name="ItemsPedidosClientes" EntityType="Self.ItemsPedidosClientes" />
-    <EntitySet Name="ItemsPedidosFornecedor" EntityType="Self.ItemsPedidosFornecedor" />
     <AssociationSet Name="FK_Clientes_PedidoClientes" Association="Self.FK_Clientes_PedidoClientes">
       <End Role="Clientes" EntitySet="Clientes" />
       <End Role="PedidoClientes" EntitySet="PedidoClientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemsPedidosClientes_Produtos" Association="Self.FK_ItemsPedidosClientes_Produtos">
+      <End Role="Produtos" EntitySet="Produtos" />
+      <End Role="ItemsPedidosClientes" EntitySet="ItemsPedidosClientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PedidoClientes_ItemsPedidosClientes" Association="Self.FK_PedidoClientes_ItemsPedidosClientes">
+      <End Role="PedidoClientes" EntitySet="PedidoClientes" />
+      <End Role="ItemsPedidosClientes" EntitySet="ItemsPedidosClientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItemsPedidos_Produtos" Association="Self.FK_ItemsPedidos_Produtos">
+      <End Role="Produtos" EntitySet="Produtos" />
+      <End Role="ItemsPedidosFornecedor" EntitySet="ItemsPedidosFornecedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PedidoFornecedorFornecedor_ItemsPedidosFornecedor" Association="Self.FK_PedidoFornecedorFornecedor_ItemsPedidosFornecedor">
+      <End Role="PedidoFornecedores" EntitySet="PedidoFornecedores" />
+      <End Role="ItemsPedidosFornecedor" EntitySet="ItemsPedidosFornecedor" />
     </AssociationSet>
     <AssociationSet Name="FK_PedidoClientes_Parcelas" Association="Self.FK_PedidoClientes_Parcelas">
       <End Role="PedidoClientes" EntitySet="PedidoClientes" />
@@ -188,22 +202,6 @@
     <AssociationSet Name="FK_PedidoForncedores_Parcelas" Association="Self.FK_PedidoForncedores_Parcelas">
       <End Role="PedidoFornecedores" EntitySet="PedidoFornecedores" />
       <End Role="Parcelas" EntitySet="Parcelas" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PedidoClientes_ItemsPedidosClientes" Association="Self.FK_PedidoClientes_ItemsPedidosClientes">
-      <End Role="PedidoClientes" EntitySet="PedidoClientes" />
-      <End Role="ItemsPedidosClientes" EntitySet="ItemsPedidosClientes" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PedidoFornecedorFornecedor_ItemsPedidosFornecedor" Association="Self.FK_PedidoFornecedorFornecedor_ItemsPedidosFornecedor">
-      <End Role="PedidoFornecedores" EntitySet="PedidoFornecedores" />
-      <End Role="ItemsPedidosFornecedor" EntitySet="ItemsPedidosFornecedor" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ItemsPedidos_Produtos" Association="Self.FK_ItemsPedidos_Produtos">
-      <End Role="Produtos" EntitySet="Produtos" />
-      <End Role="ItemsPedidosFornecedor" EntitySet="ItemsPedidosFornecedor" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ItemsPedidosClientes_Produtos" Association="Self.FK_ItemsPedidosClientes_Produtos">
-      <End Role="Produtos" EntitySet="Produtos" />
-      <End Role="ItemsPedidosClientes" EntitySet="ItemsPedidosClientes" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -12,6 +12,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ItemsPedidosClientes">
+      <EntityTypeMapping TypeName="DatabaseModel.ItemsPedidosClientes">
+        <MappingFragment StoreEntitySet="ItemsPedidosClientes">
+          <ScalarProperty Name="CodItemPedido" ColumnName="CodItemPedido" />
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+          <ScalarProperty Name="CodProduto" ColumnName="CodProduto" />
+          <ScalarProperty Name="CodPedidoCliente" ColumnName="CodPedidoCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemsPedidosFornecedor">
+      <EntityTypeMapping TypeName="DatabaseModel.ItemsPedidosFornecedor">
+        <MappingFragment StoreEntitySet="ItemsPedidosFornecedor">
+          <ScalarProperty Name="CodItemPedido" ColumnName="CodItemPedido" />
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+          <ScalarProperty Name="CodProduto" ColumnName="CodProduto" />
+          <ScalarProperty Name="CodPedidoFornecedor" ColumnName="CodPedidoFornecedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Parcelas">
       <EntityTypeMapping TypeName="DatabaseModel.Parcelas">
         <MappingFragment StoreEntitySet="Parcelas">
@@ -54,24 +74,6 @@
           <ScalarProperty Name="Nome" ColumnName="Nome" />
           <ScalarProperty Name="ValorUnitario" ColumnName="ValorUnitario" />
           <ScalarProperty Name="Tamanho" ColumnName="Tamanho" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ItemsPedidosClientes">
-      <EntityTypeMapping TypeName="DatabaseModel.ItemsPedidosClientes">
-        <MappingFragment StoreEntitySet="ItemsPedidosClientes">
-          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
-          <ScalarProperty Name="CodProduto" ColumnName="CodProduto" />
-          <ScalarProperty Name="CodPedidoCliente" ColumnName="CodPedidoCliente" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ItemsPedidosFornecedor">
-      <EntityTypeMapping TypeName="DatabaseModel.ItemsPedidosFornecedor">
-        <MappingFragment StoreEntitySet="ItemsPedidosFornecedor">
-          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
-          <ScalarProperty Name="CodProduto" ColumnName="CodProduto" />
-          <ScalarProperty Name="CodPedidoFornecedor" ColumnName="CodPedidoFornecedor" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

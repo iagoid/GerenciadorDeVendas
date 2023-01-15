@@ -18,9 +18,8 @@ namespace GerenciadorDeVendas.Classes
             //Instanciando a conexão com a base de dados
             using (DatabaseEntities dbContext = new DatabaseEntities())
             {
-
-                
-                //
+                ItemsPedidosClientes itensClientes = new ItemsPedidosClientes();
+                Parcelas parcelas = new Parcelas();
 
                 PedidoClientes enPedidos = new PedidoClientes
                 {
@@ -34,11 +33,28 @@ namespace GerenciadorDeVendas.Classes
 
                 foreach (ListViewItem item in list)
                 {
-                    enPedidos.ItemsPedidosClientes.Add(new ItemsPedidosClientes
-                    {
-                        CodProduto = int.Parse((string)item.Tag),
-                    });
+                    itensClientes.CodPedidoCliente = this.CodCliente;
+                    itensClientes.CodProduto = (int)item.Tag;
+                    itensClientes.Quantidade = int.Parse(item.SubItems[1].Text);
+                    itensClientes.PedidoClientes = enPedidos;
+
+                    dbContext.ItemsPedidosClientes.Add(itensClientes);
                 }
+
+                DateTime dataParcela = DateTime.Now;
+                for (int i = 0; i < this.TotalParcelas; i++)
+                {
+                    dataParcela = dataParcela.AddMonths(1);
+                    dbContext.Parcelas.Add(new Parcelas
+                    {
+                        PedidoClientes = enPedidos,
+                        DtPagamento = dataParcela,
+                        Valor = Math.Round(this.ValorTotal / this.TotalParcelas, 2),
+                        Status = "1"
+                    });
+                    
+                }
+
 
                 dbContext.PedidoClientes.Add(enPedidos);
                 dbContext.SaveChanges();

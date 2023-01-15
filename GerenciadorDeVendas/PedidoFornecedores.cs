@@ -17,8 +17,8 @@ namespace GerenciadorDeVendas
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PedidoFornecedores()
         {
-            this.Parcelas = new HashSet<Parcelas>();
             this.ItemsPedidosFornecedor = new HashSet<ItemsPedidosFornecedor>();
+            this.Parcelas = new HashSet<Parcelas>();
         }
     
         public int CodPedidoF { get; set; }
@@ -28,8 +28,8 @@ namespace GerenciadorDeVendas
         public System.DateTime Data { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Parcelas> Parcelas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ItemsPedidosFornecedor> ItemsPedidosFornecedor { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Parcelas> Parcelas { get; set; }
     }
 }

@@ -14,11 +14,12 @@ namespace GerenciadorDeVendas
     
     public partial class ItemsPedidosClientes
     {
+        public int CodItemPedido { get; set; }
         public int Quantidade { get; set; }
         public int CodProduto { get; set; }
         public int CodPedidoCliente { get; set; }
     
-        public virtual PedidoClientes PedidoClientes { get; set; }
         public virtual Produtos Produtos { get; set; }
+        public virtual PedidoClientes PedidoClientes { get; set; }
     }
 }

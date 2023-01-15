@@ -253,16 +253,29 @@ namespace GerenciadorDeVendas.Formularios
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
-            PedidosEntidade entPedido = new PedidosEntidade();
-            string qtdParcelas = cmbParcelas.Text.Substring(0, cmbParcelas.Text.IndexOf('X')).Trim();
-            string valorParcelas = cmbParcelas.Text.Substring(cmbParcelas.Text.IndexOf('X') + 1).Trim();
+            try { 
+                PedidosEntidade entPedido = new PedidosEntidade();
+                string qtdParcelas = cmbParcelas.Text.Substring(0, cmbParcelas.Text.IndexOf('X')).Trim();
+                string valorParcelas = cmbParcelas.Text.Substring(cmbParcelas.Text.IndexOf('X') + 1).Trim();
 
-            entPedido.CodCliente = ((KeyValuePair<int, string>)cmbClientes.SelectedItem).Key;
-            entPedido.TotalParcelas = int.Parse(qtdParcelas);
-            entPedido.ValorTotal = decimal.Parse(txtTotal.Text);
+                entPedido.CodCliente = ((KeyValuePair<int, string>)cmbClientes.SelectedItem).Key;
+                entPedido.TotalParcelas = int.Parse(qtdParcelas);
+                entPedido.ValorTotal = decimal.Parse(txtTotal.Text);
 
-            entPedido.Adicionar(lstProdutos.Items);
+                entPedido.Adicionar(lstProdutos.Items);
 
+                lstProdutos.Items.Clear();
+                cmbParcelas.DataSource = null;
+                cmbParcelas.Items.Clear();
+                txtTotal.Text = "";
+
+                MessageBox.Show("Pedido Realizado");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERRO: " + ex.Message);
+            }
 
         }
 
