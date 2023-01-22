@@ -21,11 +21,11 @@ namespace GerenciadorDeVendas.Formularios
         private string VerificarCampos()
         {
             String message = "";
-            if (string.IsNullOrEmpty(this.txtQuantidade.Text))
+            if (string.IsNullOrEmpty(this.txtQuantidade.Text.Trim()))
             {
                 message += "Campo Quantidade é obrigatório\n";
             }
-            if (string.IsNullOrEmpty(this.cmbProdutos.Text))
+            if (string.IsNullOrEmpty(this.cmbProdutos.Text.Trim()))
             {
                 message += "Campo Produto é obrigatório\n";
             }
@@ -44,19 +44,19 @@ namespace GerenciadorDeVendas.Formularios
                     return;
                 }
 
-                string valorUnitario = cmbProdutos.Text.
+                string valorUnitario = cmbProdutos.Text.Trim().
                         Substring(cmbProdutos.Text.LastIndexOf("R$") + 2);
                 decimal valorTotal = decimal.Parse(valorUnitario) * int.Parse(txtQuantidade.Text);
 
                 int idProduto = ((KeyValuePair<int, string>)cmbProdutos.SelectedItem).Key;
 
-                ListViewItem ItemX = new ListViewItem(cmbProdutos.Text);
+                ListViewItem ItemX = new ListViewItem(cmbProdutos.Text.Trim());
                 ItemX.Tag = idProduto;
-                ItemX.SubItems.Add(txtQuantidade.Text);
+                ItemX.SubItems.Add(txtQuantidade.Text.Trim());
                 ItemX.SubItems.Add(valorTotal.ToString());
                 lstProdutos.Items.Add(ItemX);
 
-                decimal totalAtual = string.IsNullOrEmpty(txtTotal.Text) ? 0 : decimal.Parse(txtTotal.Text);
+                decimal totalAtual = string.IsNullOrEmpty(txtTotal.Text.Trim()) ? 0 : decimal.Parse(txtTotal.Text.Trim());
                 decimal totalAtualizado = Math.Round(totalAtual + valorTotal, 2);
 
                 txtTotal.Text = totalAtualizado.ToString();
@@ -108,12 +108,12 @@ namespace GerenciadorDeVendas.Formularios
 
         private void cmbProdutos_Leave(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(cmbProdutos.Text))
+            if (!String.IsNullOrEmpty(cmbProdutos.Text.Trim()))
             {
                 foreach (var item in cmbProdutos.Items)
                 {
                     string nomeProduto = ((KeyValuePair<int, string>)item).Value;
-                    if (nomeProduto.Equals(cmbProdutos.Text, StringComparison.OrdinalIgnoreCase))
+                    if (nomeProduto.Equals(cmbProdutos.Text.Trim(), StringComparison.OrdinalIgnoreCase))
                     {
                         cmbProdutos.Text = nomeProduto;
                         return;
@@ -149,7 +149,7 @@ namespace GerenciadorDeVendas.Formularios
                 string valorParcelas = cmbParcelas.Text.Substring(cmbParcelas.Text.IndexOf('X') + 1).Trim();
 
                 entPedido.TotalParcelas = int.Parse(qtdParcelas);
-                entPedido.ValorTotal = decimal.Parse(txtTotal.Text);
+                entPedido.ValorTotal = decimal.Parse(txtTotal.Text.Trim());
 
                 entPedido.Adicionar(lstProdutos.Items);
 
@@ -184,15 +184,18 @@ namespace GerenciadorDeVendas.Formularios
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            try
+            {
+
             ListViewItem item = lstProdutos.SelectedItems[0];
 
-            DialogResult dr = MessageBox.Show($"Deseja excluir o produto {item.Text}",
+            DialogResult dr = MessageBox.Show($"Deseja excluir o produto {item.Text.Trim()}",
                 "Deseja Excluir?", MessageBoxButtons.YesNo);
 
             if (dr == DialogResult.Yes)
             {
-                decimal totalAtual = string.IsNullOrEmpty(txtTotal.Text) ? 0 : decimal.Parse(txtTotal.Text);
-                decimal precoProduto = decimal.Parse(item.SubItems[2].ToString());
+                decimal totalAtual = string.IsNullOrEmpty(txtTotal.Text.Trim()) ? 0 : decimal.Parse(txtTotal.Text.Trim());
+                decimal precoProduto = decimal.Parse(item.SubItems[2].Text);
                 decimal totalAtualizado = Math.Round(totalAtual - precoProduto, 2);
 
                 txtTotal.Text = totalAtualizado.ToString();
@@ -201,6 +204,12 @@ namespace GerenciadorDeVendas.Formularios
 
                 lstProdutos.SelectedItems[0].Remove();
             }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERRO: " + ex.Message);
+            }
+
 
 
         }

@@ -24,27 +24,27 @@ namespace GerenciadorDeVendas.Formularios
         private string VerificarCampos()
         {
             String message = "";
-            if (string.IsNullOrEmpty(this.txtNome.Text))
+            if (string.IsNullOrEmpty(this.txtNome.Text.Trim()))
             {
                 message += "Campo Nome é obrigatório\n";
             }
-            if (string.IsNullOrEmpty(this.txtTelefone.Text))
+            if (string.IsNullOrEmpty(this.txtTelefone.Text.Trim()))
             {
                 message += "Campo Telefone é obrigatório\n";
             }
-            else if(!long.TryParse(this.txtTelefone.Text, out _)) {
+            else if(!long.TryParse(this.txtTelefone.Text.Trim(), out _)) {
                 message += "Campo Telefone é apenas numérico\n";
             }
 
-            if (string.IsNullOrEmpty(this.txtCPF.Text))
+            if (string.IsNullOrEmpty(this.txtCPF.Text.Trim()))
             {
                 message += "Campo CPF é obrigatório\n";
             }
-            else if (!long.TryParse(this.txtCPF.Text, out _))
+            else if (!long.TryParse(this.txtCPF.Text.Trim(), out _))
             {
                 message += "Campo CPF é apenas numérico\n";
             }
-            if (string.IsNullOrEmpty(this.txtEndereco.Text))
+            if (string.IsNullOrEmpty(this.txtEndereco.Text.Trim()))
             {
                 message += "Campo Endereço é obrigatório\n";
             }
@@ -76,10 +76,10 @@ namespace GerenciadorDeVendas.Formularios
             try
             {
                 ClientesEntidade enClientes = new ClientesEntidade();
-                enClientes.Nome = txtNome.Text;
-                enClientes.Telefone = txtTelefone.Text;
-                enClientes.CPF =  txtCPF.Text;
-                enClientes.Endereco = txtEndereco.Text;
+                enClientes.Nome = txtNome.Text.Trim();
+                enClientes.Telefone = txtTelefone.Text.Trim();
+                enClientes.CPF =  txtCPF.Text.Trim();
+                enClientes.Endereco = txtEndereco.Text.Trim();
 
                 enClientes.Adicionar();
                 ListarClientes();
@@ -87,7 +87,7 @@ namespace GerenciadorDeVendas.Formularios
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERRO: " + ex.Message);
+                MessageBox.Show("ERRO: " + ex.InnerException.InnerException.Message);
                 return false;
             }
         }
@@ -97,11 +97,11 @@ namespace GerenciadorDeVendas.Formularios
             try
             {
                 ClientesEntidade enClientes = new ClientesEntidade();
-                enClientes.CodCliente = int.Parse(txtID.Text);
-                enClientes.Nome = txtNome.Text;
-                enClientes.Telefone = txtTelefone.Text;
-                enClientes.CPF = txtCPF.Text;
-                enClientes.Endereco = txtEndereco.Text;
+                enClientes.CodCliente = int.Parse(txtID.Text.Trim());
+                enClientes.Nome = txtNome.Text.Trim();
+                enClientes.Telefone = txtTelefone.Text.Trim();
+                enClientes.CPF = txtCPF.Text.Trim();
+                enClientes.Endereco = txtEndereco.Text.Trim();
 
                 enClientes.Editar();
                 ListarClientes();
@@ -109,7 +109,7 @@ namespace GerenciadorDeVendas.Formularios
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERRO: " + ex.Message);
+                MessageBox.Show("ERRO: " + ex.InnerException.InnerException.Message);
                 return false;
             }
         }
@@ -126,7 +126,7 @@ namespace GerenciadorDeVendas.Formularios
                 this.lstClientes.Items.Clear();
 
                 ClientesEntidade enCliente = new ClientesEntidade();
-                List<Clientes> listaClientes = enCliente.Listar(txtBusca.Text);
+                List<Clientes> listaClientes = enCliente.Listar(txtBusca.Text.Trim());
                 foreach (Clientes c in listaClientes)
                 {
                     ListViewItem ItemX = new ListViewItem(c.Nome);
@@ -140,7 +140,7 @@ namespace GerenciadorDeVendas.Formularios
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERRO: " + ex.Message);
+                MessageBox.Show("ERRO: " + ex.InnerException.InnerException.Message);
             }
         }
 
@@ -164,10 +164,10 @@ namespace GerenciadorDeVendas.Formularios
             {
                 ListViewItem item = lstClientes.SelectedItems[0];
                 txtID.Text = item.Tag.ToString();
-                txtNome.Text = item.Text;
-                txtTelefone.Text = item.SubItems[1].Text;
-                txtEndereco.Text = item.SubItems[2].Text;
-                txtCPF.Text = item.SubItems[3].Text;
+                txtNome.Text = item.Text.Trim();
+                txtTelefone.Text = item.SubItems[1].Text.Trim();
+                txtEndereco.Text = item.SubItems[2].Text.Trim();
+                txtCPF.Text = item.SubItems[3].Text.Trim();
 
                 btnInserir.Enabled = false;
                 btnExcluir.Enabled = false;
@@ -201,7 +201,7 @@ namespace GerenciadorDeVendas.Formularios
 
                 catch (Exception ex)
                 {
-                    MessageBox.Show("ERRO: " + ex.Message);
+                    MessageBox.Show("ERRO: " + ex.InnerException.InnerException.Message);
                 }
             }
         }
@@ -266,7 +266,7 @@ namespace GerenciadorDeVendas.Formularios
         {
                 ListViewItem item = lstClientes.SelectedItems[0];
 
-                DialogResult dr = MessageBox.Show($"Deseja excluir o cliente {item.Text}",
+                DialogResult dr = MessageBox.Show($"Deseja excluir o cliente {item.Text.Trim()}",
                     "Deseja Excluir?", MessageBoxButtons.YesNo);
                     
                 if (dr == DialogResult.Yes)
@@ -297,7 +297,7 @@ namespace GerenciadorDeVendas.Formularios
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERRO: " + ex.Message);
+                MessageBox.Show("ERRO: " + ex.InnerException.InnerException.Message);
                 return false;
             }
         }

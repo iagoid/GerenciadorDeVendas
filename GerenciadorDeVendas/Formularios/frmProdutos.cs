@@ -21,15 +21,15 @@ namespace GerenciadorDeVendas.Formularios
         private string VerificarCampos()
         {
             String message = "";
-            if (string.IsNullOrEmpty(this.txtNome.Text))
+            if (string.IsNullOrEmpty(this.txtNome.Text.Trim()))
             {
                 message += "Campo Nome é obrigatório\n";
             }
-            if (string.IsNullOrEmpty(this.txtValor.Text))
+            if (string.IsNullOrEmpty(this.txtValor.Text.Trim()))
             {
                 message += "Campo Valor é obrigatório\n";
             }
-            if (string.IsNullOrEmpty(this.txtTamanho.Text))
+            if (string.IsNullOrEmpty(this.txtTamanho.Text.Trim()))
             {
                 message += "Campo Tamanho é obrigatório\n";
             }
@@ -62,9 +62,9 @@ namespace GerenciadorDeVendas.Formularios
             try
             {
                 ProdutosEntidade enProdutos = new ProdutosEntidade();
-                enProdutos.Nome = txtNome.Text;
-                enProdutos.Tamanho = txtTamanho.Text;
-                enProdutos.ValorUnitario = Decimal.Parse(txtValor.Text);
+                enProdutos.Nome = txtNome.Text.Trim();
+                enProdutos.Tamanho = txtTamanho.Text.Trim();
+                enProdutos.ValorUnitario = Decimal.Parse(txtValor.Text.Trim());
 
                 enProdutos.Adicionar();
                 ListarProdutos();
@@ -82,10 +82,10 @@ namespace GerenciadorDeVendas.Formularios
             try
             {
                 ProdutosEntidade enProdutos = new ProdutosEntidade();
-                enProdutos.CodProduto = int.Parse(txtID.Text);
-                enProdutos.Nome = txtNome.Text;
-                enProdutos.Tamanho = txtTamanho.Text;
-                enProdutos.ValorUnitario = Decimal.Parse(txtValor.Text);
+                enProdutos.CodProduto = int.Parse(txtID.Text.Trim());
+                enProdutos.Nome = txtNome.Text.Trim();
+                enProdutos.Tamanho = txtTamanho.Text.Trim();
+                enProdutos.ValorUnitario = Decimal.Parse(txtValor.Text.Trim());
 
                 enProdutos.Editar();
                 ListarProdutos();
@@ -105,7 +105,7 @@ namespace GerenciadorDeVendas.Formularios
                 this.lstProdutos.Items.Clear();
 
                 ProdutosEntidade enProdutos = new ProdutosEntidade();
-                List<Produtos> listaProdutos = enProdutos.Listar(txtBusca.Text);
+                List<Produtos> listaProdutos = enProdutos.Listar(txtBusca.Text.Trim());
                 foreach (Produtos p in listaProdutos)
                 {
                     ListViewItem ItemX = new ListViewItem(p.Nome);
@@ -143,9 +143,9 @@ namespace GerenciadorDeVendas.Formularios
             {
                 ListViewItem item = lstProdutos.SelectedItems[0];
                 txtID.Text = item.Tag.ToString();
-                txtNome.Text = item.Text;
-                txtValor.Text = item.SubItems[1].Text;
-                txtTamanho.Text = item.SubItems[2].Text;
+                txtNome.Text = item.Text.Trim();
+                txtValor.Text = item.SubItems[1].Text.Trim();
+                txtTamanho.Text = item.SubItems[2].Text.Trim();
 
                 btnInserir.Enabled = false;
                 btnExcluir.Enabled = false;
@@ -246,7 +246,7 @@ namespace GerenciadorDeVendas.Formularios
         {
             ListViewItem item = lstProdutos.SelectedItems[0];
 
-            DialogResult dr = MessageBox.Show($"Deseja excluir o cliente {item.Text}",
+            DialogResult dr = MessageBox.Show($"Deseja excluir o cliente {item.Text.Trim()}",
                 "Deseja Excluir?", MessageBoxButtons.YesNo);
 
             if (dr == DialogResult.Yes)

@@ -128,6 +128,7 @@
             this.Controls.Add(this.lstClientes);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnNovoPedido);
+            this.MinimizeBox = false;
             this.Name = "frmListarPedidos";
             this.Text = "frmListarPedidos";
             this.Load += new System.EventHandler(this.frmListarPedidos_Load);

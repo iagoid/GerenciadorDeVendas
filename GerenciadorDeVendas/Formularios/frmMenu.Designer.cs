@@ -125,6 +125,7 @@
             this.Controls.Add(this.btnGerenciarPedidos);
             this.Controls.Add(this.btnGerenciarClientes);
             this.Controls.Add(this.label3);
+            this.MaximizeBox = false;
             this.Name = "frmMenu";
             this.Text = "Menu";
             this.ResumeLayout(false);

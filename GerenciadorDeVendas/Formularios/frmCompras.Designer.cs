@@ -235,6 +235,7 @@
             this.Controls.Add(this.lstProdutos);
             this.Controls.Add(this.btnInserir);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "frmCompras";
             this.Text = "frmCompras";
             this.Load += new System.EventHandler(this.frmPedidos_Load);

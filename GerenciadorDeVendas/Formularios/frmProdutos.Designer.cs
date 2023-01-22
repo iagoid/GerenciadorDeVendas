@@ -277,8 +277,9 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MaximizeBox = false;
             this.Name = "frmProdutos";
-            this.Text = "frmProduto";
+            this.Text = "Gerenciar Produtos";
             this.Load += new System.EventHandler(this.frmProdutos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

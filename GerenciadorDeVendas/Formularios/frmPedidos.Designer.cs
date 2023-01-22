@@ -265,6 +265,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnFinalizar);
+            this.MaximizeBox = false;
             this.Name = "frmPedidos";
             this.Text = "Pedidos";
             this.Load += new System.EventHandler(this.frmPedidos_Load);

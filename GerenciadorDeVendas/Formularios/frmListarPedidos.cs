@@ -25,7 +25,7 @@ namespace GerenciadorDeVendas.Formularios
                 this.lstClientes.Items.Clear();
 
                 PedidosEntidade enPedidos = new PedidosEntidade();
-                List<PedidosContainer> listaClientes = enPedidos.ListarPedidosClientes(txtBusca.Text);
+                List<PedidosContainer> listaClientes = enPedidos.ListarPedidosClientes(txtBusca.Text.Trim());
                 foreach (PedidosContainer p in listaClientes)
                 {
                     ListViewItem ItemX = new ListViewItem(p.NomeCliente);
@@ -38,7 +38,7 @@ namespace GerenciadorDeVendas.Formularios
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERRO: " + ex.Message);
+                MessageBox.Show("ERRO: " + ex.InnerException.InnerException.Message);
             }
         }
 

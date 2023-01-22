@@ -20,10 +20,31 @@ namespace GerenciadorDeVendas
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            frmMenu mainMenu = new frmMenu();
-            this.Hide();
-            mainMenu.ShowDialog();
-            this.Close();
+            string message = "";
+            if (string.IsNullOrEmpty(this.txtUsuario.Text.Trim()))
+            {
+                message += "O campo usuário é obrigatório\n";
+            }
+            if (string.IsNullOrEmpty(this.txtSenha.Text.Trim()))
+            {
+                message += "O campo senha é obrigatório\n";
+            }
+            if (!string.IsNullOrEmpty(message))
+            {
+                MessageBox.Show(message);
+                return;
+            }
+
+
+            if (this.txtUsuario.Text.Trim() == this.txtSenha.Text.Trim()) {
+                frmMenu mainMenu = new frmMenu();
+                this.Hide();
+                mainMenu.ShowDialog();
+                this.Close();
+            } else
+            {
+                MessageBox.Show("Seu usuário ou senha estão incorretos");
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
