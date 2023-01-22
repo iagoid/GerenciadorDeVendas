@@ -8,13 +8,19 @@ namespace GerenciadorDeVendas.Classes
 {
     internal class ParcelasContainer
     {
-        public int CodPedidoCliente { get; set; }
-        public int CodPedidoFornecedor { get; set; }
+        //public Clientes Clientes { get; set; }
+
+        //public PedidoClientes Pedido { get; set; }
+
+        //public  Parcelas Parcelas { get; set; }
+        public Nullable<int> CodPedidoCliente { get; set; }
+
+        public Nullable<int> CodPedidoFornecedor { get; set; }
         public string Nome { get; set; }
         public decimal Valor { get; set; }
         public System.DateTime DtPagamento { get; set; }
         
-        public int TotalParcelas { get; set; }
+        //public int TotalParcelas { get; set; }
 
     }
 }

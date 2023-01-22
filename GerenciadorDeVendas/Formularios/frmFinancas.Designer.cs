@@ -32,18 +32,17 @@
             this.colPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colValor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colData = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colQtdParcela = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblVoltar = new System.Windows.Forms.Label();
             this.dtFiltro = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.lstDebito = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colParcelas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
+            this.lblCredito = new System.Windows.Forms.Label();
+            this.lblDebito = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lstCredito
@@ -52,8 +51,7 @@
             this.lstCredito.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colPedido,
             this.colValor,
-            this.colData,
-            this.colQtdParcela});
+            this.colData});
             this.lstCredito.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.lstCredito.FullRowSelect = true;
             this.lstCredito.GridLines = true;
@@ -76,16 +74,12 @@
             // colValor
             // 
             this.colValor.Text = "Valor";
-            this.colValor.Width = 347;
+            this.colValor.Width = 226;
             // 
             // colData
             // 
-            this.colData.Text = "Data";
+            this.colData.Text = "Data Recebimento";
             this.colData.Width = 388;
-            // 
-            // colQtdParcela
-            // 
-            this.colQtdParcela.Text = "Parcelar";
             // 
             // label6
             // 
@@ -107,16 +101,6 @@
             this.label5.TabIndex = 56;
             this.label5.Text = "Gerenciar Produtos";
             // 
-            // lblVoltar
-            // 
-            this.lblVoltar.AutoSize = true;
-            this.lblVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVoltar.Location = new System.Drawing.Point(9, 30);
-            this.lblVoltar.Name = "lblVoltar";
-            this.lblVoltar.Size = new System.Drawing.Size(51, 20);
-            this.lblVoltar.TabIndex = 57;
-            this.lblVoltar.Text = "Voltar";
-            // 
             // dtFiltro
             // 
             this.dtFiltro.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -127,7 +111,8 @@
             this.dtFiltro.Name = "dtFiltro";
             this.dtFiltro.Size = new System.Drawing.Size(87, 20);
             this.dtFiltro.TabIndex = 68;
-            this.dtFiltro.Leave += new System.EventHandler(this.dtFiltro_Leave);
+            this.dtFiltro.CloseUp += new System.EventHandler(this.dtFiltro_CloseUp);
+            this.dtFiltro.Validated += new System.EventHandler(this.dtFiltro_Validated);
             // 
             // label1
             // 
@@ -146,8 +131,7 @@
             this.lstDebito.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.colDate,
-            this.colParcelas});
+            this.colDate});
             this.lstDebito.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.lstDebito.FullRowSelect = true;
             this.lstDebito.GridLines = true;
@@ -164,7 +148,7 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Pedido";
+            this.columnHeader1.Text = "Produto";
             this.columnHeader1.Width = 154;
             // 
             // columnHeader2
@@ -174,12 +158,8 @@
             // 
             // colDate
             // 
-            this.colDate.Text = "Data";
+            this.colDate.Text = "Data Pagamento";
             this.colDate.Width = 131;
-            // 
-            // colParcelas
-            // 
-            this.colParcelas.Text = "Parcelas";
             // 
             // label4
             // 
@@ -192,11 +172,33 @@
             this.label4.Text = "Total Débito:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // lblCredito
+            // 
+            this.lblCredito.AutoSize = true;
+            this.lblCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCredito.Location = new System.Drawing.Point(121, 112);
+            this.lblCredito.Name = "lblCredito";
+            this.lblCredito.Size = new System.Drawing.Size(0, 20);
+            this.lblCredito.TabIndex = 74;
+            this.lblCredito.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblDebito
+            // 
+            this.lblDebito.AutoSize = true;
+            this.lblDebito.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDebito.Location = new System.Drawing.Point(117, 341);
+            this.lblDebito.Name = "lblDebito";
+            this.lblDebito.Size = new System.Drawing.Size(0, 20);
+            this.lblDebito.TabIndex = 76;
+            this.lblDebito.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // frmFinancas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 564);
+            this.Controls.Add(this.lblDebito);
+            this.Controls.Add(this.lblCredito);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lstDebito);
             this.Controls.Add(this.label1);
@@ -204,7 +206,6 @@
             this.Controls.Add(this.lstCredito);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.lblVoltar);
             this.Name = "frmFinancas";
             this.Text = "frmFinancas";
             this.ResumeLayout(false);
@@ -219,15 +220,14 @@
         private System.Windows.Forms.ColumnHeader colData;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblVoltar;
         private System.Windows.Forms.DateTimePicker dtFiltro;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ColumnHeader colQtdParcela;
         private System.Windows.Forms.ListView lstDebito;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader colDate;
-        private System.Windows.Forms.ColumnHeader colParcelas;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblCredito;
+        private System.Windows.Forms.Label lblDebito;
     }
 }

@@ -27,9 +27,7 @@ namespace GerenciadorDeVendas.Formularios
         private void btnGerenciarClientes_Click(object sender, EventArgs e)
         {
             frmClientes frmClientes = new frmClientes();
-            this.Hide();
-            frmClientes.ShowDialog();
-            this.Show();
+            frmClientes.Show();
         }
 
         private void frmMenu_Load(object sender, EventArgs e)
@@ -39,26 +37,26 @@ namespace GerenciadorDeVendas.Formularios
 
         private void btnGerenciarPedidos_Click(object sender, EventArgs e)
         {
-            frmPedidos frmPedido = new frmPedidos();
-            this.Hide();
-            frmPedido.ShowDialog();
-            this.Show();
+            frmListarPedidos frmListarPedidos = new frmListarPedidos();
+            frmListarPedidos.Show();
         }
 
         private void btnGerenciarProdutos_Click(object sender, EventArgs e)
         {
             frmProdutos frmProdutos = new frmProdutos();
-            this.Hide();
-            frmProdutos.ShowDialog();
-            this.Show();
+            frmProdutos.Show();
         }
 
         private void btnGerenciarFinancas_Click(object sender, EventArgs e)
         {
             frmFinancas frmFinancas = new frmFinancas();
-            this.Hide();
-            frmFinancas.ShowDialog();
-            this.Show();
+            frmFinancas.Show();
+        }
+
+        private void btnGerenciarCompras_Click(object sender, EventArgs e)
+        {
+            frmCompras frmCompras = new frmCompras();
+            frmCompras.ShowDialog();
         }
     }
 }

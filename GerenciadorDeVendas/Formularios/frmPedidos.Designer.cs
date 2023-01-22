@@ -28,46 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtQuantidade = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.lstProdutos = new System.Windows.Forms.ListView();
             this.colProduto = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colQuantidade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colValor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnInserir = new System.Windows.Forms.Button();
-            this.txtTotal = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnFinalizar = new System.Windows.Forms.Button();
-            this.lblVoltar = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtQuantidade = new System.Windows.Forms.TextBox();
             this.cmbParcelas = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbClientes = new System.Windows.Forms.ComboBox();
             this.cmbProdutos = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // txtQuantidade
-            // 
-            this.txtQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantidade.Location = new System.Drawing.Point(741, 130);
-            this.txtQuantidade.MaxLength = 2;
-            this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(47, 26);
-            this.txtQuantidade.TabIndex = 65;
-            this.txtQuantidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantidade_KeyPress);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(643, 133);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 20);
-            this.label2.TabIndex = 64;
-            this.label2.Text = "Quantidade:";
             // 
             // btnExcluir
             // 
@@ -122,16 +101,6 @@
             this.colValor.Text = "Valor";
             this.colValor.Width = 98;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(18, 96);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 20);
-            this.label6.TabIndex = 58;
-            this.label6.Text = "Cliente:";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -157,36 +126,6 @@
             this.btnInserir.EnabledChanged += new System.EventHandler(this.btnInserir_EnabledChanged);
             this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
-            // txtTotal
-            // 
-            this.txtTotal.Enabled = false;
-            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(424, 171);
-            this.txtTotal.MaxLength = 10;
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(178, 26);
-            this.txtTotal.TabIndex = 54;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(370, 174);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 20);
-            this.label4.TabIndex = 53;
-            this.label4.Text = "Total:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 133);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 20);
-            this.label1.TabIndex = 51;
-            this.label1.Text = "Produto:";
-            // 
             // btnFinalizar
             // 
             this.btnFinalizar.BackColor = System.Drawing.Color.DodgerBlue;
@@ -201,15 +140,65 @@
             this.btnFinalizar.UseVisualStyleBackColor = false;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
-            // lblVoltar
+            // label1
             // 
-            this.lblVoltar.AutoSize = true;
-            this.lblVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVoltar.Location = new System.Drawing.Point(9, 30);
-            this.lblVoltar.Name = "lblVoltar";
-            this.lblVoltar.Size = new System.Drawing.Size(51, 20);
-            this.lblVoltar.TabIndex = 57;
-            this.lblVoltar.Text = "Voltar";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 133);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 20);
+            this.label1.TabIndex = 51;
+            this.label1.Text = "Produto:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(370, 174);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 20);
+            this.label4.TabIndex = 53;
+            this.label4.Text = "Total:";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(424, 171);
+            this.txtTotal.MaxLength = 10;
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(178, 26);
+            this.txtTotal.TabIndex = 54;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(18, 96);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 20);
+            this.label6.TabIndex = 58;
+            this.label6.Text = "Cliente:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(643, 133);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 20);
+            this.label2.TabIndex = 64;
+            this.label2.Text = "Quantidade:";
+            // 
+            // txtQuantidade
+            // 
+            this.txtQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantidade.Location = new System.Drawing.Point(741, 130);
+            this.txtQuantidade.MaxLength = 2;
+            this.txtQuantidade.Name = "txtQuantidade";
+            this.txtQuantidade.Size = new System.Drawing.Size(47, 26);
+            this.txtQuantidade.TabIndex = 65;
+            this.txtQuantidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantidade_KeyPress);
             // 
             // cmbParcelas
             // 
@@ -276,7 +265,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnFinalizar);
-            this.Controls.Add(this.lblVoltar);
             this.Name = "frmPedidos";
             this.Text = "Pedidos";
             this.Load += new System.EventHandler(this.frmPedidos_Load);
@@ -286,21 +274,20 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtQuantidade;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.ListView lstProdutos;
         private System.Windows.Forms.ColumnHeader colProduto;
         private System.Windows.Forms.ColumnHeader colQuantidade;
         private System.Windows.Forms.ColumnHeader colValor;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnInserir;
-        private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnFinalizar;
-        private System.Windows.Forms.Label lblVoltar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtQuantidade;
         private System.Windows.Forms.ComboBox cmbParcelas;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbClientes;

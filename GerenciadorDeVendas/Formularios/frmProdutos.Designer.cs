@@ -37,7 +37,6 @@
             this.lstProdutos = new System.Windows.Forms.ListView();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.lblVoltar = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnInserir = new System.Windows.Forms.Button();
             this.txtValor = new System.Windows.Forms.TextBox();
@@ -152,16 +151,6 @@
             this.label6.TabIndex = 41;
             this.label6.Text = "ID:";
             // 
-            // lblVoltar
-            // 
-            this.lblVoltar.AutoSize = true;
-            this.lblVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVoltar.Location = new System.Drawing.Point(9, 6);
-            this.lblVoltar.Name = "lblVoltar";
-            this.lblVoltar.Size = new System.Drawing.Size(51, 20);
-            this.lblVoltar.TabIndex = 40;
-            this.lblVoltar.Text = "Voltar";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -195,6 +184,7 @@
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(143, 26);
             this.txtValor.TabIndex = 36;
+            this.txtValor.TextChanged += new System.EventHandler(this.txtValor_TextChanged);
             this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEndereco_KeyPress);
             // 
             // label4
@@ -280,7 +270,6 @@
             this.Controls.Add(this.lstProdutos);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.lblVoltar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnInserir);
             this.Controls.Add(this.txtValor);
@@ -307,7 +296,6 @@
         private System.Windows.Forms.ListView lstProdutos;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblVoltar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnInserir;
         private System.Windows.Forms.TextBox txtValor;

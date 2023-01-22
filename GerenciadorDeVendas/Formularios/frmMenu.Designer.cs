@@ -89,6 +89,7 @@
             this.btnGerenciarCompras.TabIndex = 16;
             this.btnGerenciarCompras.Text = "Gerenciar Compras";
             this.btnGerenciarCompras.UseVisualStyleBackColor = true;
+            this.btnGerenciarCompras.Click += new System.EventHandler(this.btnGerenciarCompras_Click);
             // 
             // btnGerenciarFinancas
             // 

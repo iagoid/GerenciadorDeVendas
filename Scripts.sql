@@ -2,7 +2,7 @@ CREATE TABLE Clientes(
     CodCliente integer identity(1, 1) not null,
     Nome varchar(80) not null,
     Telefone varchar(11) not null,
-    CPF varchar(11) not null,
+    CPF varchar(11) UNIQUE not null,
     Endereco varchar(100) not null,
     CONSTRAINT PK_CodCliente PRIMARY KEY (CodCliente)
 );

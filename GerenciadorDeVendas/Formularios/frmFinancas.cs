@@ -20,28 +20,38 @@ namespace GerenciadorDeVendas.Formularios
 
         private void Listar()
         {
+            decimal totalDebito = 0, totalCredito = 0;
+
             try
             {
                 this.lstCredito.Items.Clear();
                 this.lstDebito.Items.Clear();
 
                 ParcelasEntidade enParcelas = new ParcelasEntidade();
-                List<object> listaParcelas = enParcelas.Listar(dtFiltro.Value);
+                var listaParcelas = enParcelas.ListarCredito(dtFiltro.Value);
                 foreach (ParcelasContainer p in listaParcelas)
                 {
                     ListViewItem ItemX = new ListViewItem(p.Nome);
                     ItemX.SubItems.Add(p.Valor.ToString());
-                    ItemX.SubItems.Add(p.DtPagamento.ToString());
-
-                    if (p.CodPedidoCliente == 0)
-                    {
-                        lstDebito.Items.Add(ItemX);
-                    }
-                    else
-                    {
-                        lstCredito.Items.Add(ItemX);
-                    }
+                    ItemX.SubItems.Add(p.DtPagamento.ToShortDateString());
+                    totalCredito += p.Valor;
+                    lstCredito.Items.Add(ItemX);
                 }
+
+
+                ParcelasEntidade enParcelas2 = new ParcelasEntidade();
+                var listaParcelas2 = enParcelas.ListarDebito(dtFiltro.Value);
+                foreach (ParcelasContainer p in listaParcelas2)
+                {
+                    ListViewItem ItemX = new ListViewItem(p.Nome);
+                    ItemX.SubItems.Add(p.Valor.ToString());
+                    ItemX.SubItems.Add(p.DtPagamento.ToShortDateString());
+                    totalDebito += p.Valor;
+                    lstDebito.Items.Add(ItemX);
+                }
+
+                lblCredito.Text = "R$" + totalCredito.ToString();
+                lblDebito.Text = "R$" +totalDebito.ToString();
             }
             catch (Exception ex)
             {
@@ -49,7 +59,13 @@ namespace GerenciadorDeVendas.Formularios
             }
         }
 
-        private void dtFiltro_Leave(object sender, EventArgs e)
+        private void dtFiltro_Validated(object sender, EventArgs e)
+        {
+            Listar();
+        }
+
+
+        private void dtFiltro_CloseUp(object sender, EventArgs e)
         {
             Listar();
         }

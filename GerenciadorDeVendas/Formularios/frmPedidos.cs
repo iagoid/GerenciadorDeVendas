@@ -89,25 +89,6 @@ namespace GerenciadorDeVendas.Formularios
             }
         }
 
-        private void btnLimpar_Click(object sender, EventArgs e)
-        {
-            Limpar();
-        }
-
-        void Limpar()
-        {
-
-            txtTotal.Text = "";
-            txtTotal.Text = "";
-            txtQuantidade.Text = "";
-
-            btnFinalizar.Text = "Editar";
-            btnExcluir.Enabled = false;
-            btnFinalizar.Enabled = false;
-            btnInserir.Enabled = true;
-            lstProdutos.Enabled = true;
-        }
-
         private void btnInserir_EnabledChanged(object sender, EventArgs e)
         {
             if (btnInserir.Enabled)
@@ -141,6 +122,15 @@ namespace GerenciadorDeVendas.Formularios
 
             if (dr == DialogResult.Yes)
             {
+
+                decimal totalAtual = string.IsNullOrEmpty(txtTotal.Text) ? 0 : decimal.Parse(txtTotal.Text);
+                decimal precoProduto = decimal.Parse(item.SubItems[2].Text);
+                decimal totalAtualizado = Math.Round(totalAtual - precoProduto, 2);
+
+                txtTotal.Text = totalAtualizado.ToString();
+
+                CalcularParcelas(totalAtualizado);
+
                 lstProdutos.SelectedItems[0].Remove();
             }
         }
@@ -160,7 +150,8 @@ namespace GerenciadorDeVendas.Formularios
 
             foreach (Clientes c in listClientes)
             {
-                valorCmb.Add(c.CodCliente, $"{c.Nome} {c.Endereco} Tel:{FormatPhoneNumber(long.Parse(c.Telefone))}".Trim());
+                String dados = $"{c.Nome} {c.Endereco} Tel:{FormatPhoneNumber(long.Parse(c.Telefone))}".Trim();
+                valorCmb.Add(c.CodCliente, dados);
             }
 
             cmbClientes.DataSource = new BindingSource(valorCmb, null);
@@ -201,7 +192,7 @@ namespace GerenciadorDeVendas.Formularios
                     }
                 }
 
-                cmbProdutos.Focus();
+                cmbClientes.Focus();
                 MessageBox.Show("Selecione um cliente válido");
 
             }
@@ -221,7 +212,7 @@ namespace GerenciadorDeVendas.Formularios
                     }
                 }
 
-                cmbClientes.Focus();
+                cmbProdutos.Focus();
                 MessageBox.Show("Selecione um produto válido");
             }
         }

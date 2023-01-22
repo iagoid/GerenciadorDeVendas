@@ -19,3 +19,5 @@ E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\obj\
 E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\obj\Debug\GerenciadorDeVendas.Formularios.frmProdutos.resources
 E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\obj\Debug\GerenciadorDeVendas.Formularios.frmPedidos.resources
 E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\obj\Debug\GerenciadorDeVendas.Formularios.frmFinancas.resources
+E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\obj\Debug\GerenciadorDeVendas.Formularios.frmCompras.resources
+E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\obj\Debug\GerenciadorDeVendas.Formularios.frmListarPedidos.resources

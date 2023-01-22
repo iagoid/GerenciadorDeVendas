@@ -71,38 +71,46 @@ namespace GerenciadorDeVendas.Classes
             }
         }
 
-        //public void Editar()
-        //{
-        //    using (DatabaseEntities dbContext = new DatabaseEntities())
-        //    {
-        //        PedidoClientes entPedidos = new PedidoClientes
-        //        {
-        //            CodPedidoC = this.CodPedidoC,
-        //            CodCliente = this.CodCliente,
-        //            ValorTotal = this.ValorTotal,
-        //            TotalParcelas = this.TotalParcelas,
-        //            Status = this.Status,
-        //            Data = this.Data,
-        //        };
+        public List<PedidosContainer> ListarPedidosClientes(string parametro = "")
+        {
 
-        //        dbContext.PedidoClientes.AddOrUpdate(entPedidos);
-        //        dbContext.SaveChanges();
-        //    }
-        //}
+            List<PedidosContainer> pedidos = new List<PedidosContainer> { };
 
-        //public void Excluir()
-        //{
-        //    using (DatabaseEntities dbContext = new DatabaseEntities())
-        //    {
-        //        PedidoClientes entPedidos = new PedidoClientes
-        //        {
-        //            CodPedidoC = this.CodPedidoC,
-        //        };
+            using (DatabaseEntities dbContext = new DatabaseEntities())
+            {
+                var list = (
+                            from itens in dbContext.ItemsPedidosClientes
+                            join peCliente in dbContext.PedidoClientes
+                                on itens.CodPedidoCliente equals peCliente.CodPedidoC
+                         
 
-        //        dbContext.PedidoClientes.Attach(entPedidos);
-        //        dbContext.PedidoClientes.Remove(entPedidos);
-        //        dbContext.SaveChanges();
-        //    }
-        //}
+                            where peCliente.Clientes.Nome.StartsWith(parametro)
+                          
+                            select new
+                            {
+                                peCliente.Clientes.Nome,
+                                peCliente.Clientes.Endereco,
+                                peCliente.Clientes.Telefone,
+                                itens.Quantidade,
+                                ProdutoNome = itens.Produtos.Nome,
+                                itens.Produtos.ValorUnitario,
+                                itens.Produtos.Tamanho
+
+                            }).ToList();
+
+                foreach (var item in list)
+                {
+                    PedidosContainer p = new PedidosContainer();
+                    p.NomeCliente = $"{item.Nome} {item.Endereco} Tel:{Utils.FormatPhoneNumber(long.Parse(item.Telefone))}".Trim();
+                    p.Quantidade = item.Quantidade;
+                    p.Produto = $"{item.ProdutoNome} {item.Tamanho} R${item.ValorUnitario}".Trim();
+
+                    pedidos.Add(p);
+                }
+
+                return pedidos;
+
+            }
+        }
     }
 }

@@ -38,7 +38,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnInserir = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblVoltar = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.lstClientes = new System.Windows.Forms.ListView();
@@ -61,6 +60,7 @@
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(266, 26);
             this.txtCPF.TabIndex = 9;
+            this.txtCPF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCPF_KeyPress);
             // 
             // txtNome
             // 
@@ -99,6 +99,7 @@
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(287, 26);
             this.txtTelefone.TabIndex = 13;
+            this.txtTelefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefone_KeyPress);
             // 
             // txtEndereco
             // 
@@ -153,16 +154,6 @@
             this.label5.Size = new System.Drawing.Size(280, 37);
             this.label5.TabIndex = 21;
             this.label5.Text = "Gerenciar Clientes";
-            // 
-            // lblVoltar
-            // 
-            this.lblVoltar.AutoSize = true;
-            this.lblVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVoltar.Location = new System.Drawing.Point(6, 0);
-            this.lblVoltar.Name = "lblVoltar";
-            this.lblVoltar.Size = new System.Drawing.Size(51, 20);
-            this.lblVoltar.TabIndex = 23;
-            this.lblVoltar.Text = "Voltar";
             // 
             // txtID
             // 
@@ -305,7 +296,6 @@
             this.Controls.Add(this.lstClientes);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.lblVoltar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnInserir);
             this.Controls.Add(this.txtTelefone);
@@ -336,7 +326,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnInserir;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblVoltar;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListView lstClientes;

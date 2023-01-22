@@ -173,7 +173,7 @@ namespace GerenciadorDeVendas.Formularios
                     }
                     else
                     {
-                        MessageBox.Show("Houve um erro ao atualizar o cliente");
+                        MessageBox.Show("Houve um erro ao atualizar o produto");
                     }
 
                 }
@@ -259,7 +259,7 @@ namespace GerenciadorDeVendas.Formularios
                 }
                 else
                 {
-                    MessageBox.Show("Houve um erro ao deletar o cliente");
+                    MessageBox.Show("Houve um erro ao deletar o produto");
                 }
             }
         }
@@ -304,6 +304,11 @@ namespace GerenciadorDeVendas.Formularios
         private void txtBusca_TextChanged(object sender, EventArgs e)
         {
             ListarProdutos();
+        }
+
+        private void txtValor_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

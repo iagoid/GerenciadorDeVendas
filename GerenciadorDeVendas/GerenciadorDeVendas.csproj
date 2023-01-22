@@ -73,10 +73,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ClientesEntidade.cs" />
+    <Compile Include="Classes\PedidosContainer.cs" />
     <Compile Include="Classes\ParcelasContainer.cs" />
     <Compile Include="Classes\ParcelasEntidade.cs" />
+    <Compile Include="Classes\ComprasEntidade.cs" />
     <Compile Include="Classes\PedidosEntidade.cs" />
     <Compile Include="Classes\ProdutosEntidade.cs" />
+    <Compile Include="Classes\Utils.cs" />
     <Compile Include="Clientes.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -92,11 +95,23 @@
     <Compile Include="Formularios\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmCompras.Designer.cs">
+      <DependentUpon>frmCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frmFinancas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\frmFinancas.Designer.cs">
       <DependentUpon>frmFinancas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmListarPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmListarPedidos.Designer.cs">
+      <DependentUpon>frmListarPedidos.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frmMenu.cs">
       <SubType>Form</SubType>
@@ -156,9 +171,16 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmCompras.resx">
+      <DependentUpon>frmCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmFinancas.resx">
       <DependentUpon>frmFinancas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmListarPedidos.resx">
+      <DependentUpon>frmListarPedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>

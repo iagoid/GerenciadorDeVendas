@@ -32,9 +32,17 @@ namespace GerenciadorDeVendas.Formularios
             {
                 message += "Campo Telefone é obrigatório\n";
             }
+            else if(!long.TryParse(this.txtTelefone.Text, out _)) {
+                message += "Campo Telefone é apenas numérico\n";
+            }
+
             if (string.IsNullOrEmpty(this.txtCPF.Text))
             {
                 message += "Campo CPF é obrigatório\n";
+            }
+            else if (!long.TryParse(this.txtCPF.Text, out _))
+            {
+                message += "Campo CPF é apenas numérico\n";
             }
             if (string.IsNullOrEmpty(this.txtEndereco.Text))
             {
@@ -297,6 +305,24 @@ namespace GerenciadorDeVendas.Formularios
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             ListarClientes();
+        }
+
+        private void txtCPF_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+            (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelefone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+            (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 
