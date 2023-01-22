@@ -29,6 +29,10 @@ namespace GerenciadorDeVendas.Formularios
             {
                 message += "Campo Valor é obrigatório\n";
             }
+            else if (this.txtValor.Text.Trim() == "0")
+            {
+                message += "Campo Valor precisa ser maior que zero\n";
+            }
             if (string.IsNullOrEmpty(this.txtTamanho.Text.Trim()))
             {
                 message += "Campo Tamanho é obrigatório\n";

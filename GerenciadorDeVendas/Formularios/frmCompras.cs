@@ -24,7 +24,12 @@ namespace GerenciadorDeVendas.Formularios
             if (string.IsNullOrEmpty(this.txtQuantidade.Text.Trim()))
             {
                 message += "Campo Quantidade é obrigatório\n";
+            } else if (this.txtQuantidade.Text.Trim() == "0")
+            {
+                message += "Campo Quantidade precisa ser maior que zero\n";
             }
+
+
             if (string.IsNullOrEmpty(this.cmbProdutos.Text.Trim()))
             {
                 message += "Campo Produto é obrigatório\n";
