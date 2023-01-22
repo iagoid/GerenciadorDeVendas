@@ -99,7 +99,9 @@
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(287, 26);
             this.txtTelefone.TabIndex = 13;
+            this.txtTelefone.Enter += new System.EventHandler(this.txtTelefone_Enter);
             this.txtTelefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefone_KeyPress);
+            this.txtTelefone.Leave += new System.EventHandler(this.txtTelefone_Leave);
             // 
             // txtEndereco
             // 

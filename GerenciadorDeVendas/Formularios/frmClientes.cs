@@ -32,7 +32,7 @@ namespace GerenciadorDeVendas.Formularios
             {
                 message += "Campo Telefone é obrigatório\n";
             }
-            else if(!long.TryParse(this.txtTelefone.Text.Trim(), out _)) {
+            else if(!long.TryParse(Utils.GetNumbers(this.txtTelefone.Text.Trim()), out _)) {
                 message += "Campo Telefone é apenas numérico\n";
             }
 
@@ -43,7 +43,12 @@ namespace GerenciadorDeVendas.Formularios
             else if (!long.TryParse(this.txtCPF.Text.Trim(), out _))
             {
                 message += "Campo CPF é apenas numérico\n";
+            } else if (!Utils.IsCpf(this.txtCPF.Text.Trim()))
+            {
+                message += "Seu CPF não é valido";
             }
+
+
             if (string.IsNullOrEmpty(this.txtEndereco.Text.Trim()))
             {
                 message += "Campo Endereço é obrigatório\n";
@@ -77,7 +82,7 @@ namespace GerenciadorDeVendas.Formularios
             {
                 ClientesEntidade enClientes = new ClientesEntidade();
                 enClientes.Nome = txtNome.Text.Trim();
-                enClientes.Telefone = txtTelefone.Text.Trim();
+                enClientes.Telefone = Utils.GetNumbers(txtTelefone.Text.Trim());
                 enClientes.CPF =  txtCPF.Text.Trim();
                 enClientes.Endereco = txtEndereco.Text.Trim();
 
@@ -323,6 +328,31 @@ namespace GerenciadorDeVendas.Formularios
             {
                 e.Handled = true;
             }
+        }
+
+        private void txtTelefone_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.txtTelefone.Text.Trim().Length < 10)
+                {
+                    MessageBox.Show("Telefone precisa ter 10 ou 11 digitos");
+                    this.txtTelefone.Focus();
+                    return;
+
+                }
+                string telefoneFormatado = Utils.FormatPhoneNumber(long.Parse(this.txtTelefone.Text.Trim()));
+                this.txtTelefone.Text = telefoneFormatado;
+            } catch
+            {
+                MessageBox.Show("Telefone Inválido. Verifique");
+                this.txtTelefone.Focus();
+            }
+        }
+
+        private void txtTelefone_Enter(object sender, EventArgs e)
+        {
+            this.txtTelefone.Text = Utils.GetNumbers(this.txtTelefone.Text.Trim());
         }
     }
 
