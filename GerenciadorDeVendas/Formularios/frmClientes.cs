@@ -334,6 +334,10 @@ namespace GerenciadorDeVendas.Formularios
         {
             try
             {
+                if (string.IsNullOrEmpty(txtTelefone.Text))
+                {
+                    return;
+                }
                 if (this.txtTelefone.Text.Trim().Length < 10)
                 {
                     MessageBox.Show("Telefone precisa ter 10 ou 11 digitos");

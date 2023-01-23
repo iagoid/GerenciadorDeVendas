@@ -70,7 +70,7 @@
             this.txtBusca.MaxLength = 11;
             this.txtBusca.Name = "txtBusca";
             this.txtBusca.Size = new System.Drawing.Size(287, 20);
-            this.txtBusca.TabIndex = 49;
+            this.txtBusca.TabIndex = 2;
             this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
             // 
             // lstClientes
@@ -113,7 +113,7 @@
             this.btnNovoPedido.Location = new System.Drawing.Point(10, 57);
             this.btnNovoPedido.Name = "btnNovoPedido";
             this.btnNovoPedido.Size = new System.Drawing.Size(210, 37);
-            this.btnNovoPedido.TabIndex = 40;
+            this.btnNovoPedido.TabIndex = 1;
             this.btnNovoPedido.Text = "Novo Pedido";
             this.btnNovoPedido.UseVisualStyleBackColor = false;
             this.btnNovoPedido.Click += new System.EventHandler(this.btnNovoPedido_Click);
@@ -128,6 +128,7 @@
             this.Controls.Add(this.lstClientes);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnNovoPedido);
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmListarPedidos";
             this.Text = "frmListarPedidos";

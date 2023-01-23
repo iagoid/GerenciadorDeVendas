@@ -58,7 +58,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(608, 345);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(180, 50);
-            this.btnExcluir.TabIndex = 62;
+            this.btnExcluir.TabIndex = 8;
             this.btnExcluir.Text = "Excluir Produto";
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.EnabledChanged += new System.EventHandler(this.btnExcluir_EnabledChanged);
@@ -120,7 +120,7 @@
             this.btnInserir.Location = new System.Drawing.Point(608, 207);
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Size = new System.Drawing.Size(180, 50);
-            this.btnInserir.TabIndex = 55;
+            this.btnInserir.TabIndex = 6;
             this.btnInserir.Text = "Inserir";
             this.btnInserir.UseVisualStyleBackColor = false;
             this.btnInserir.EnabledChanged += new System.EventHandler(this.btnInserir_EnabledChanged);
@@ -135,7 +135,7 @@
             this.btnFinalizar.Location = new System.Drawing.Point(608, 276);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(180, 50);
-            this.btnFinalizar.TabIndex = 61;
+            this.btnFinalizar.TabIndex = 7;
             this.btnFinalizar.Text = "Finalizar Pedido";
             this.btnFinalizar.UseVisualStyleBackColor = false;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
@@ -168,7 +168,7 @@
             this.txtTotal.MaxLength = 10;
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(178, 26);
-            this.txtTotal.TabIndex = 54;
+            this.txtTotal.TabIndex = 5;
             // 
             // label6
             // 
@@ -197,7 +197,7 @@
             this.txtQuantidade.MaxLength = 2;
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(47, 26);
-            this.txtQuantidade.TabIndex = 65;
+            this.txtQuantidade.TabIndex = 3;
             this.txtQuantidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantidade_KeyPress);
             // 
             // cmbParcelas
@@ -208,7 +208,7 @@
             this.cmbParcelas.Location = new System.Drawing.Point(90, 171);
             this.cmbParcelas.Name = "cmbParcelas";
             this.cmbParcelas.Size = new System.Drawing.Size(269, 28);
-            this.cmbParcelas.TabIndex = 68;
+            this.cmbParcelas.TabIndex = 4;
             // 
             // label3
             // 
@@ -229,7 +229,7 @@
             this.cmbClientes.Location = new System.Drawing.Point(92, 93);
             this.cmbClientes.Name = "cmbClientes";
             this.cmbClientes.Size = new System.Drawing.Size(696, 28);
-            this.cmbClientes.TabIndex = 72;
+            this.cmbClientes.TabIndex = 1;
             this.cmbClientes.SelectedIndexChanged += new System.EventHandler(this.cmbClientes_SelectedIndexChanged);
             this.cmbClientes.Leave += new System.EventHandler(this.cmbClientes_Leave);
             // 
@@ -242,7 +242,7 @@
             this.cmbProdutos.Location = new System.Drawing.Point(90, 130);
             this.cmbProdutos.Name = "cmbProdutos";
             this.cmbProdutos.Size = new System.Drawing.Size(547, 28);
-            this.cmbProdutos.TabIndex = 73;
+            this.cmbProdutos.TabIndex = 2;
             this.cmbProdutos.Leave += new System.EventHandler(this.cmbProdutos_Leave);
             // 
             // frmPedidos

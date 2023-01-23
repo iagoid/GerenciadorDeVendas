@@ -55,7 +55,7 @@
             this.cmbProdutos.Location = new System.Drawing.Point(90, 84);
             this.cmbProdutos.Name = "cmbProdutos";
             this.cmbProdutos.Size = new System.Drawing.Size(547, 28);
-            this.cmbProdutos.TabIndex = 89;
+            this.cmbProdutos.TabIndex = 1;
             // 
             // label3
             // 
@@ -75,7 +75,7 @@
             this.cmbParcelas.Location = new System.Drawing.Point(90, 125);
             this.cmbParcelas.Name = "cmbParcelas";
             this.cmbParcelas.Size = new System.Drawing.Size(269, 28);
-            this.cmbParcelas.TabIndex = 86;
+            this.cmbParcelas.TabIndex = 3;
             // 
             // txtQuantidade
             // 
@@ -84,7 +84,7 @@
             this.txtQuantidade.MaxLength = 2;
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(47, 26);
-            this.txtQuantidade.TabIndex = 85;
+            this.txtQuantidade.TabIndex = 2;
             // 
             // label2
             // 
@@ -98,7 +98,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.BackColor = System.Drawing.Color.IndianRed;
+            this.btnExcluir.BackColor = System.Drawing.Color.LightGray;
             this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExcluir.Enabled = false;
             this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -106,7 +106,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(608, 297);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(180, 50);
-            this.btnExcluir.TabIndex = 83;
+            this.btnExcluir.TabIndex = 7;
             this.btnExcluir.Text = "Excluir Produto";
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.EnabledChanged += new System.EventHandler(this.btnExcluir_EnabledChanged);
@@ -130,7 +130,7 @@
             this.txtTotal.MaxLength = 10;
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(178, 26);
-            this.txtTotal.TabIndex = 76;
+            this.txtTotal.TabIndex = 4;
             // 
             // label4
             // 
@@ -151,7 +151,7 @@
             this.btnFinalizar.Location = new System.Drawing.Point(608, 230);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(180, 50);
-            this.btnFinalizar.TabIndex = 82;
+            this.btnFinalizar.TabIndex = 6;
             this.btnFinalizar.Text = "Finalizar Pedido";
             this.btnFinalizar.UseVisualStyleBackColor = false;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
@@ -202,7 +202,7 @@
             this.btnInserir.Location = new System.Drawing.Point(608, 159);
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Size = new System.Drawing.Size(180, 50);
-            this.btnInserir.TabIndex = 77;
+            this.btnInserir.TabIndex = 5;
             this.btnInserir.Text = "Inserir";
             this.btnInserir.UseVisualStyleBackColor = false;
             this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);

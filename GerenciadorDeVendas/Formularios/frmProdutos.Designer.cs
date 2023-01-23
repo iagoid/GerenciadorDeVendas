@@ -58,7 +58,7 @@
             this.btnLimpar.Location = new System.Drawing.Point(618, 138);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(170, 39);
-            this.btnLimpar.TabIndex = 46;
+            this.btnLimpar.TabIndex = 8;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = false;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -73,7 +73,7 @@
             this.btnEditar.Location = new System.Drawing.Point(209, 138);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(158, 39);
-            this.btnEditar.TabIndex = 44;
+            this.btnEditar.TabIndex = 6;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.EnabledChanged += new System.EventHandler(this.btnEditar_EnabledChanged);
@@ -104,7 +104,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(419, 138);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(158, 39);
-            this.btnExcluir.TabIndex = 45;
+            this.btnExcluir.TabIndex = 7;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.EnabledChanged += new System.EventHandler(this.btnExcluir_EnabledChanged);
@@ -139,7 +139,7 @@
             this.txtID.Location = new System.Drawing.Point(86, 57);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(152, 26);
-            this.txtID.TabIndex = 42;
+            this.txtID.TabIndex = 1;
             // 
             // label6
             // 
@@ -170,7 +170,7 @@
             this.btnInserir.Location = new System.Drawing.Point(10, 138);
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Size = new System.Drawing.Size(158, 39);
-            this.btnInserir.TabIndex = 38;
+            this.btnInserir.TabIndex = 5;
             this.btnInserir.Text = "Inserir";
             this.btnInserir.UseVisualStyleBackColor = false;
             this.btnInserir.EnabledChanged += new System.EventHandler(this.btnInserir_EnabledChanged);
@@ -183,7 +183,7 @@
             this.txtValor.MaxLength = 10;
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(143, 26);
-            this.txtValor.TabIndex = 36;
+            this.txtValor.TabIndex = 3;
             this.txtValor.TextChanged += new System.EventHandler(this.txtValor_TextChanged);
             this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEndereco_KeyPress);
             // 
@@ -204,7 +204,7 @@
             this.txtNome.MaxLength = 100;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(371, 26);
-            this.txtNome.TabIndex = 32;
+            this.txtNome.TabIndex = 2;
             // 
             // label1
             // 
@@ -223,7 +223,7 @@
             this.txtTamanho.MaxLength = 2;
             this.txtTamanho.Name = "txtTamanho";
             this.txtTamanho.Size = new System.Drawing.Size(32, 26);
-            this.txtTamanho.TabIndex = 48;
+            this.txtTamanho.TabIndex = 4;
             // 
             // label2
             // 
@@ -242,7 +242,7 @@
             this.txtBusca.MaxLength = 11;
             this.txtBusca.Name = "txtBusca";
             this.txtBusca.Size = new System.Drawing.Size(287, 20);
-            this.txtBusca.TabIndex = 50;
+            this.txtBusca.TabIndex = 9;
             this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
             // 
             // label7

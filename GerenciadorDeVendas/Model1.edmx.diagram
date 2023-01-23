@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8948acbbc6b949f8bdcd175449f784a4" Name="Diagram1">
+      <Diagram DiagramId="8948acbbc6b949f8bdcd175449f784a4" Name="Diagram1" ZoomLevel="138">
         <EntityTypeShape EntityType="DatabaseModel.Clientes" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.ItemsPedidosClientes" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.ItemsPedidosFornecedor" Width="1.5" PointX="8.25" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Parcelas" Width="2.125" PointX="8.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.ItemsPedidosClientes" Width="1.5" PointX="0.625" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.ItemsPedidosFornecedor" Width="1.5" PointX="6.375" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Parcelas" Width="2.125" PointX="5.625" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.PedidoClientes" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.PedidoFornecedores" Width="1.5" PointX="6" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Produtos" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.PedidoFornecedores" Width="1.5" PointX="9.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Produtos" Width="1.5" PointX="3.875" PointY="5.625" IsExpanded="true" />
         <AssociationConnector Association="DatabaseModel.FK_Clientes_PedidoClientes" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseModel.FK_ItemsPedidosClientes_Produtos" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseModel.FK_PedidoClientes_ItemsPedidosClientes" ManuallyRouted="false" />

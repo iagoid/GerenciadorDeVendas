@@ -109,8 +109,9 @@
             this.dtFiltro.Location = new System.Drawing.Point(288, 84);
             this.dtFiltro.MaxDate = new System.DateTime(9998, 12, 1, 0, 0, 0, 0);
             this.dtFiltro.Name = "dtFiltro";
+            this.dtFiltro.ShowUpDown = true;
             this.dtFiltro.Size = new System.Drawing.Size(87, 20);
-            this.dtFiltro.TabIndex = 68;
+            this.dtFiltro.TabIndex = 1;
             this.dtFiltro.CloseUp += new System.EventHandler(this.dtFiltro_CloseUp);
             this.dtFiltro.Validated += new System.EventHandler(this.dtFiltro_Validated);
             // 
