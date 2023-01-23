@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using DarrenLee.Translator;
 
 namespace GerenciadorDeVendas.Classes
 {
@@ -70,6 +71,18 @@ namespace GerenciadorDeVendas.Classes
         public static string GetNumbers(string input)
         {
             return new string(input.Where(c => char.IsDigit(c)).ToArray());
+        }
+
+        public static string Traduzir(string texto)
+        {
+            try
+            {
+                return Translator.Translate(texto, "en", "pt-br");
+
+            } catch
+            {
+                return texto;
+            }
         }
     }
 }

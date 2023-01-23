@@ -92,7 +92,7 @@ namespace GerenciadorDeVendas.Formularios
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERRO: " + ex.InnerException.InnerException.Message);
+                MessageBox.Show("ERRO: " + Utils.Traduzir(ex.InnerException.InnerException.Message));
                 return false;
             }
         }
@@ -114,7 +114,7 @@ namespace GerenciadorDeVendas.Formularios
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERRO: " + ex.InnerException.InnerException.Message);
+                MessageBox.Show("ERRO: " + Utils.Traduzir(ex.InnerException.InnerException.Message));
                 return false;
             }
         }
@@ -145,7 +145,7 @@ namespace GerenciadorDeVendas.Formularios
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERRO: " + ex.InnerException.InnerException.Message);
+                MessageBox.Show("ERRO: " + Utils.Traduzir(ex.InnerException.InnerException.Message));
             }
         }
 
@@ -206,7 +206,7 @@ namespace GerenciadorDeVendas.Formularios
 
                 catch (Exception ex)
                 {
-                    MessageBox.Show("ERRO: " + ex.InnerException.InnerException.Message);
+                    MessageBox.Show("ERRO: " + Utils.Traduzir(ex.InnerException.InnerException.Message));
                 }
             }
         }
@@ -302,7 +302,7 @@ namespace GerenciadorDeVendas.Formularios
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERRO: " + ex.InnerException.InnerException.Message);
+                MessageBox.Show("ERRO: " + Utils.Traduzir(ex.InnerException.InnerException.Message));
                 return false;
             }
         }

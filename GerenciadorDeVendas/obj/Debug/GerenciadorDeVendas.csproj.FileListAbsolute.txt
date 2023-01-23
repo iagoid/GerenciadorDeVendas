@@ -21,3 +21,17 @@ E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\obj\
 E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\obj\Debug\GerenciadorDeVendas.Formularios.frmFinancas.resources
 E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\obj\Debug\GerenciadorDeVendas.Formularios.frmCompras.resources
 E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\obj\Debug\GerenciadorDeVendas.Formularios.frmListarPedidos.resources
+E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\bin\Debug\DarrenLee.Translator.dll
+E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\bin\Debug\System.Web.Helpers.dll
+E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\bin\Debug\System.Web.Mvc.dll
+E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\bin\Debug\System.Web.Razor.dll
+E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\bin\Debug\System.Web.WebPages.dll
+E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\bin\Debug\System.Web.WebPages.Razor.dll
+E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\bin\Debug\System.Web.Helpers.xml
+E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\bin\Debug\System.Web.Mvc.xml
+E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\bin\Debug\System.Web.Razor.xml
+E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\bin\Debug\System.Web.WebPages.xml
+E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\Desktop\Escola\AnaliseDeSoftware\GerenciadorDeVendas\GerenciadorDeVendas\bin\Debug\System.Web.WebPages.Razor.xml
