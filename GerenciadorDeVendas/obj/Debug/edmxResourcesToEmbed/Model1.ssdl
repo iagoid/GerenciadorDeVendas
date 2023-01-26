@@ -69,6 +69,14 @@
     <Property Name="ValorUnitario" Type="decimal" Precision="8" Scale="2" Nullable="false" />
     <Property Name="Tamanho" Type="char" MaxLength="3" Nullable="false" />
   </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="CodUsuario" />
+    </Key>
+    <Property Name="CodUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Senha" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
   <Association Name="FK_Clientes_PedidoClientes">
     <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
     <End Role="PedidoClientes" Type="Self.PedidoClientes" Multiplicity="*" />
@@ -161,6 +169,7 @@
     <EntitySet Name="PedidoClientes" EntityType="Self.PedidoClientes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PedidoFornecedores" EntityType="Self.PedidoFornecedores" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Produtos" EntityType="Self.Produtos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Clientes_PedidoClientes" Association="Self.FK_Clientes_PedidoClientes">
       <End Role="Clientes" EntitySet="Clientes" />
       <End Role="PedidoClientes" EntitySet="PedidoClientes" />

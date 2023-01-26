@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GerenciadorDeVendas.Classes;
 using GerenciadorDeVendas.Formularios;
 
 namespace GerenciadorDeVendas
@@ -35,9 +36,14 @@ namespace GerenciadorDeVendas
                 return;
             }
 
+            UsuariosEntidade user = new UsuariosEntidade
+            {
+                Nome = this.txtUsuario.Text.Trim(),
+                Senha = this.txtSenha.Text.Trim()
+            };
 
-            if (this.txtUsuario.Text.Trim() == this.txtSenha.Text.Trim()) {
-                frmMenu mainMenu = new frmMenu();
+            if (user.Login()) {
+                frmMenu mainMenu = new frmMenu(this.txtUsuario.Text);
                 this.Hide();
                 mainMenu.ShowDialog();
                 this.Close();

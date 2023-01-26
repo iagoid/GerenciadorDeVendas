@@ -1,3 +1,15 @@
+CREATE TABLE Usuarios(
+    CodUsuario integer identity(1, 1) not null,
+    Nome varchar(80) not null,
+    Senha varchar(100) not null,
+    CONSTRAINT PK_CodUsuario PRIMARY KEY (CodUsuario)
+);
+
+INSERT INTO
+    Usuarios (Nome, Senha)
+VALUES
+    ('admin', 'admin');
+
 CREATE TABLE Clientes(
     CodCliente integer identity(1, 1) not null,
     Nome varchar(80) not null,

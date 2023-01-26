@@ -14,9 +14,12 @@ namespace GerenciadorDeVendas.Formularios
 {
     public partial class frmMenu : Form
     {
-        public frmMenu()
+        public string NomeUsuario { get; set; }
+
+        public frmMenu(string usuario)
         {
             InitializeComponent();
+            this.NomeUsuario = usuario;
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -57,6 +60,11 @@ namespace GerenciadorDeVendas.Formularios
         {
             frmCompras frmCompras = new frmCompras();
             frmCompras.ShowDialog();
+        }
+
+        private void frmMenu_Load_1(object sender, EventArgs e)
+        {
+            this.txtBemVindo.Text = $"Seja bem vindo {this.NomeUsuario}";
         }
     }
 }

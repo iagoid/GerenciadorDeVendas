@@ -203,5 +203,14 @@
       <End Role="PedidoFornecedores" EntitySet="PedidoFornecedores" />
       <End Role="Parcelas" EntitySet="Parcelas" />
     </AssociationSet>
+    <EntitySet Name="Usuarios" EntityType="DatabaseModel.Usuarios" />
   </EntityContainer>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="CodUsuario" />
+    </Key>
+    <Property Name="CodUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="Senha" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

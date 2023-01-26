@@ -32,5 +32,6 @@ namespace GerenciadorDeVendas
         public virtual DbSet<PedidoClientes> PedidoClientes { get; set; }
         public virtual DbSet<PedidoFornecedores> PedidoFornecedores { get; set; }
         public virtual DbSet<Produtos> Produtos { get; set; }
+        public virtual DbSet<Usuarios> Usuarios { get; set; }
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label3 = new System.Windows.Forms.Label();
+            this.txtBemVindo = new System.Windows.Forms.Label();
             this.btnGerenciarClientes = new System.Windows.Forms.Button();
             this.btnGerenciarPedidos = new System.Windows.Forms.Button();
             this.btnGerenciarProdutos = new System.Windows.Forms.Button();
@@ -37,15 +37,15 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label3
+            // txtBemVindo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(300, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(246, 31);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Bem Vindo Usuário";
+            this.txtBemVindo.AutoSize = true;
+            this.txtBemVindo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBemVindo.Location = new System.Drawing.Point(300, 9);
+            this.txtBemVindo.Name = "txtBemVindo";
+            this.txtBemVindo.Size = new System.Drawing.Size(246, 31);
+            this.txtBemVindo.TabIndex = 9;
+            this.txtBemVindo.Text = "Bem Vindo Usuário";
             // 
             // btnGerenciarClientes
             // 
@@ -124,17 +124,18 @@
             this.Controls.Add(this.btnGerenciarProdutos);
             this.Controls.Add(this.btnGerenciarPedidos);
             this.Controls.Add(this.btnGerenciarClientes);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtBemVindo);
             this.MaximizeBox = false;
             this.Name = "frmMenu";
             this.Text = "Menu";
+            this.Load += new System.EventHandler(this.frmMenu_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label txtBemVindo;
         private System.Windows.Forms.Button btnGerenciarClientes;
         private System.Windows.Forms.Button btnGerenciarPedidos;
         private System.Windows.Forms.Button btnGerenciarProdutos;

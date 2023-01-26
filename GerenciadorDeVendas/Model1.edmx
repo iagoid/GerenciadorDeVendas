@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Clientes">
           <Key>
             <PropertyRef Name="CodCliente" />
@@ -73,6 +73,14 @@
           <Property Name="Nome" Type="varchar" MaxLength="80" Nullable="false" />
           <Property Name="ValorUnitario" Type="decimal" Precision="8" Scale="2" Nullable="false" />
           <Property Name="Tamanho" Type="char" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="CodUsuario" />
+          </Key>
+          <Property Name="CodUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="Senha" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <Association Name="FK_Clientes_PedidoClientes">
           <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
@@ -166,6 +174,7 @@
           <EntitySet Name="PedidoClientes" EntityType="Self.PedidoClientes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PedidoFornecedores" EntityType="Self.PedidoFornecedores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Produtos" EntityType="Self.Produtos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Clientes_PedidoClientes" Association="Self.FK_Clientes_PedidoClientes">
             <End Role="Clientes" EntitySet="Clientes" />
             <End Role="PedidoClientes" EntitySet="PedidoClientes" />
@@ -195,8 +204,7 @@
             <End Role="ItemsPedidosFornecedor" EntitySet="ItemsPedidosFornecedor" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -403,7 +411,16 @@
             <End Role="PedidoFornecedores" EntitySet="PedidoFornecedores" />
             <End Role="Parcelas" EntitySet="Parcelas" />
           </AssociationSet>
+          <EntitySet Name="Usuarios" EntityType="DatabaseModel.Usuarios" />
         </EntityContainer>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="CodUsuario" />
+          </Key>
+          <Property Name="CodUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Senha" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -483,6 +500,15 @@
                 <ScalarProperty Name="Nome" ColumnName="Nome" />
                 <ScalarProperty Name="ValorUnitario" ColumnName="ValorUnitario" />
                 <ScalarProperty Name="Tamanho" ColumnName="Tamanho" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="DatabaseModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="CodUsuario" ColumnName="CodUsuario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
